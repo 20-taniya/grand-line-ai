@@ -1,0 +1,1180 @@
+/* ---------------- BODY ---------------- */
+
+body{
+
+    
+    margin:0;
+    padding:0;
+
+    background-image: url("../images/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+
+}
+
+/* ---------------- CONTAINER ---------------- */
+
+.container{
+
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    padding-top:40px;
+
+}
+
+/* ---------------- HEADING ---------------- */
+
+h1{
+
+    font-size:55px;
+    margin-bottom:10px;
+
+}
+
+p{
+
+    font-size:20px;
+
+}
+
+/* ---------------- CARD CONTAINER ---------------- */
+
+.cards{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:35px;
+
+    flex-wrap:wrap;
+
+    margin-top:50px;
+
+}
+
+/* ---------------- CARD ---------------- */
+
+.card{
+
+    width:220px;
+
+    height:320px;
+
+    perspective:1000px;
+
+    cursor:pointer;
+
+}
+
+/* ---------------- INNER ---------------- */
+
+.card-inner{
+
+    width:100%;
+
+    height:100%;
+
+    position:relative;
+
+    transition:0.8s;
+
+    transform-style:preserve-3d;
+
+}
+
+/* ---------------- FLIP ---------------- */
+
+.card.flipped .card-inner{
+
+    transform:rotateY(180deg);
+
+}
+
+/* ---------------- FRONT + BACK ---------------- */
+
+.card-front,
+.card-back{
+
+    position:absolute;
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:20px;
+
+    backface-visibility:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:15px;
+
+    box-sizing:border-box;
+
+}
+
+/* ---------------- FRONT ---------------- */
+
+.card-front{
+
+    background:rgba(255, 255, 255, 0.2);
+
+    backdrop-filter:blur(12px);
+
+    border:1px solid rgba(255,255,255,0.2);
+
+}
+
+/* ---------------- BACK ---------------- */
+
+.card-back{
+
+    background:rgba(18,18,18,0.92);
+
+    transform:rotateY(180deg);
+
+    border:1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+/* ---------------- IMAGE ---------------- */
+
+.card img{
+
+    width:250px;
+
+    height:250px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+}
+
+/* ---------------- TEXT ---------------- */
+
+.card h2{
+
+    margin:5px 0;
+
+    color:aliceblue(72, 9, 9);
+
+}
+
+.card p{
+
+    font-size:15px;
+
+    color:#ddd;
+
+    line-height:22px;
+
+}
+
+.card span{
+
+    margin-top:15px;
+
+    color:#FFD700;
+
+    font-weight:bold;
+
+}
+
+/* ---------------- HOVER ---------------- */
+
+
+.card.luffy:hover{
+
+    transform: translateY(-10px);
+
+}
+
+.card.luffy:hover .card-front{
+
+    box-shadow: 0 0 30px rgb(255, 34, 0);
+
+}
+
+
+
+.card.zoro:hover{
+
+    transform: translateY(-10px);
+
+}
+
+.card.zoro:hover .card-front{
+
+    box-shadow: 0 0 30px rgb(0, 255, 68);
+
+}
+
+
+
+.card.nami:hover{
+
+    transform: translateY(-10px);
+
+}
+
+.card.nami:hover .card-front{
+
+    box-shadow: 0 0 30px rgb(221, 0, 255);
+
+}
+
+
+
+.card.sanji:hover{
+
+    transform: translateY(-10px);
+
+}
+
+.card.sanji:hover .card-front{
+
+    box-shadow: 0 0 30px rgb(165, 170, 12);
+
+}
+/* ---------------- OCEAN ---------------- */
+
+@keyframes wave{
+
+    0%{
+        background-position-x:0;
+    }
+
+    100%{
+        background-position-x:1000px;
+    }
+
+}
+
+.ocean{
+
+    animation:wave 20s linear infinite;
+
+}
+/* ------------------ cards background -------------------*/
+.luffy .card-back{
+
+background-image:url("../images/luffy-bg.jpg");
+}
+
+.zoro .card-back{
+
+background-image:url("../images/zoro-bg.jpg");
+
+}
+
+.nami .card-back{
+
+background-image:url("../images/nami-bg.jpg");
+
+}
+
+.sanji .card-back{
+
+background-image:url("../images/sanji-bg.jpg");
+
+}
+/*----------------------- image-------*/
+.card-back{
+
+background-size:cover;
+
+background-position:center;
+
+background-repeat:no-repeat;
+
+}
+/*------------------------------ content------------*/
+.card-back::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.60);
+
+}
+/*------------------text--------*/
+.card-back h2,
+.card-back p,
+.card-back span{
+
+    position:relative;
+
+    z-index:2;
+
+    color:white;
+
+}
+
+
+.hero{
+
+text-align:center;
+
+margin-top:20px;
+
+}
+
+.logo{
+
+    position:relative;
+
+    z-index:5;
+
+    display:block;
+
+    margin:0 auto 20px;
+
+    width:50%;
+
+    max-width:400px;
+
+    min-width:250px;
+
+    animation:floatLogo 3s ease-in-out infinite;
+
+}
+
+.title{
+
+font-family:'Pirata One',cursive;
+
+font-size:65px;
+
+color:#224472;
+
+letter-spacing:3px;
+
+text-shadow:
+
+0 0 10px gold,
+
+0 0 25px orange;
+
+margin-bottom:10px;
+
+}
+
+.tagline{
+
+color:rgb(12, 28, 99);
+
+font-size :28px;
+
+margin-top:10px;
+
+}
+
+.line{
+
+width:320px;
+
+height:4px;
+
+background:#FFD700;
+
+margin:20px auto;
+
+border-radius:20px;
+
+box-shadow:0 0 15px gold;
+
+}
+
+
+
+.choose{
+
+font-size:35px;
+
+color:white;
+
+margin-top:25px;
+
+font-family:'Pirata One',cursive;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes waveMove{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+50%{
+
+transform:translateX(20px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
+.logo{
+    width:180px;
+    height:auto;
+    display:block;
+    margin:20px auto;
+}
+.logo{
+    background: transparent;
+}
+.logo img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/*-----------------char info_____________________________*/
+/* =======================
+   CREW SECTION
+======================= */
+
+/*==================================================
+                MEET YOUR CREW
+==================================================*/
+
+.crew-section{
+    width:100%;
+    padding:120px 8%;
+}
+
+/*================ HEADER ================*/
+
+.crew-header{
+    text-align:center;
+    margin-top:150px;
+    margin-bottom:80px;
+}
+
+.crew-header h1{
+    font-size:55px;
+    color:#FFD700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.crew-header p{
+    width:60%;
+    margin:auto;
+    margin-top:20px;
+    color:rgb(30,11,98);
+    font-size:22px;
+    line-height:35px;
+}
+
+/*================ CONTAINER ================*/
+
+.crew-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:60px;
+
+    margin:120px 0;
+
+}
+
+.crew-container.left{
+
+    flex-direction:row;
+
+}
+
+.crew-container.right{
+
+    flex-direction:row-reverse;
+
+}
+
+/*================ IMAGE ================*/
+
+.crew-image{
+
+    width:45%;
+
+    opacity:0;
+
+    transform:translateX(-180px);
+
+    transition:1s ease;
+
+}
+
+.crew-image img{
+
+    width:80%;
+
+    transition:.5s ease;
+
+}
+
+/*================ BOX ================*/
+
+.crew-box{
+
+    width: 1000px;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:#0d0d5202;
+
+    backdrop-filter:blur(15px);
+
+    border:2px solid rgba(255,255,255,.2);
+
+    box-shadow:0 0 25px #110d5b14;
+
+    transition:.5s ease;
+
+    opacity:10;
+
+    transform:translateX(180px);
+
+}
+
+.crew-box h2{
+
+    font-size:38px;
+
+    color:#ff3b3b;
+
+}
+
+.crew-box h4{
+
+    margin:15px 0;
+
+    color:black;
+
+}
+
+.crew-box p{
+
+    color:black;
+
+    line-height:30px;
+
+}
+
+.crew-box blockquote{
+
+    margin-top:25px;
+
+    padding-left:15px;
+
+    border-left:5px solid red;
+
+    color:black;
+
+    font-style:italic;
+
+}
+
+/*================ SCROLL ANIMATION ================*/
+
+/*.crew-container.show .crew-image{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+.crew-container.show .crew-box{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}*/
+/*==============================
+   SCROLL ANIMATION
+==============================*/
+
+.crew-container .crew-image,
+.crew-container .crew-box{
+    transition:1s ease;
+}
+
+/* LEFT SECTION */
+.crew-container.left .crew-image{
+    opacity:0;
+    transform:translateX(-200px);
+}
+
+.crew-container.left .crew-box{
+    opacity:0;
+    transform:translateX(200px);
+}
+
+/* RIGHT SECTION */
+.crew-container.right .crew-image{
+    opacity:0;
+    transform:translateX(200px);
+}
+
+.crew-container.right .crew-box{
+    opacity:0;
+    transform:translateX(-200px);
+}
+
+/* SHOW */
+
+.crew-container.show .crew-image,
+.crew-container.show .crew-box{
+    opacity:1;
+    transform:translateX(0);
+}
+
+/*================ LUFFY ================*/
+
+.luffy-img img:hover{
+
+    transform:translateY(-12px) scale(1.08);
+
+    filter:
+    drop-shadow(0 0 15px red)
+    drop-shadow(0 0 30px red)
+    drop-shadow(0 0 45px #ff4d4d);
+
+}
+
+.luffy-box:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 15px red,
+    0 0 35px red,
+    0 0 60px #ff4d4d;
+
+}
+
+/*================ ZORO ================*/
+
+.zoro-img img:hover{
+
+    transform:translateY(-12px) scale(1.08);
+
+    filter:
+    drop-shadow(0 0 15px #00ff55)
+    drop-shadow(0 0 30px #00ff55)
+    drop-shadow(0 0 45px #66ff99);
+
+}
+
+.zoro-box:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 15px #00ff55,
+    0 0 35px #00ff55,
+    0 0 60px #66ff99;
+
+}
+
+
+/*================ NAMI ================*/
+
+.nami-img img:hover{
+
+    transform:translateY(-12px) scale(1.08);
+
+    filter:
+    drop-shadow(0 0 15px #b400ff)
+    drop-shadow(0 0 30px #b400ff)
+    drop-shadow(0 0 45px #d966ff);
+
+}
+
+.nami-box:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 15px #b400ff,
+    0 0 35px #b400ff,
+    0 0 60px #d966ff;
+
+}
+
+/*================ SANJI ================*/
+
+.sanji-img img:hover{
+
+    transform:translateY(-12px) scale(1.08);
+
+    filter:
+    drop-shadow(0 0 15px #ffd700)
+    drop-shadow(0 0 30px #ffd700)
+    drop-shadow(0 0 45px #fff176);
+
+}
+
+.sanji-box:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:
+    0 0 15px #ffd700,
+    0 0 35px #ffd700,
+    0 0 60px #fff176;
+
+}
+/*==========================
+        FOOTER
+===========================*/
+
+.footer{
+
+    margin-top:150px;
+
+    background:#0c192e;
+
+    padding:70px 10% 30px;
+
+}
+.footer-container{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    flex-wrap:wrap;
+
+    gap:50px;
+
+}
+.footer-logo h2{
+
+    color:#FFD700;
+
+    font-size:35px;
+
+}
+
+.footer-logo p{
+
+    color:#bbb;
+
+    margin-top:15px;
+
+}
+.footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+.footer-links h3{
+
+    color:white;
+
+    margin-bottom:15px;
+
+}
+.footer-links a{
+
+    color:#aaa;
+
+    text-decoration:none;
+
+    margin:8px 0;
+
+    transition:.3s;
+
+}
+.footer-links a:hover{
+
+    color:#FFD700;
+
+    transform:translateX(8px);
+
+}
+.social{
+
+    display:flex;
+
+    gap:20px;
+
+    margin-top:15px;
+
+}
+.footer hr{
+
+    margin:50px 0;
+
+    border:.5px solid whitesmoke;
+
+}
+.copyright{
+
+    text-align:center;
+
+    color:#888;
+
+}
+.footer-logo h2:hover{
+
+    color:#ffdd44;
+
+    text-shadow:
+
+    0 0 10px gold,
+
+    0 0 30px gold;
+
+}
+.footer-wave{
+
+    margin-top:40px;
+
+    height:8px;
+
+    width:100%;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        90deg,
+        #0ea5e9,
+        #38bdf8,
+        #0ea5e9
+    );
+
+    background-size:200% 100%;
+
+    animation:waveMove 3s linear infinite;
+
+}
+
+@keyframes waveMove{
+
+    0%{
+        background-position:0% 0%;
+    }
+
+    100%{
+        background-position:200% 0%;
+    }
+
+}
+.footer-links p{
+
+    color: white;
+
+    font-size:16px;
+
+    margin-top:10px;
+
+}
+/*==========================
+    ZIG-ZAG LAYOUT FIX
+===========================*/
+
+.crew-container{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:60px;
+    margin:120px 0;
+}
+
+/* Luffy & Nami */
+.crew-container.left{
+    flex-direction:row !important;
+}
+
+/* Zoro & Sanji */
+.crew-container.right{
+    flex-direction:row-reverse !important;
+}
+/* FINAL ZIG-ZAG FIX */
+
+.crew-container{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:80px;
+    margin:120px 0;
+}
+
+.crew-container.left{
+    flex-direction:row !important;
+}
+
+.crew-container.right{
+    flex-direction:row-reverse !important;
+}
+.pirate-world{
+
+padding:120px 0;
+
+text-align:center;
+
+}
+/*==========================
+      SCROLL ANIMATION
+===========================*/
+
+/* Initial Hidden State */
+
+.crew-container .crew-image{
+
+    opacity:0;
+
+    transform:translateX(-150px);
+
+    transition:1s ease;
+
+}
+
+.crew-container .crew-box{
+
+    opacity:0;
+
+    transform:translateX(150px);
+
+    transition:1s ease;
+
+}
+
+/* Right Side Characters */
+
+.crew-container.right .crew-image{
+
+    transform:translateX(150px);
+
+}
+
+.crew-container.right .crew-box{
+
+    transform:translateX(-150px);
+
+}
+
+/* Show Animation */
+
+.crew-container.show .crew-image,
+
+.crew-container.show .crew-box{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+/* ===========================
+      FLOATING PARTICLES
+=========================== */
+
+#particles{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+
+}
+#smoke{
+
+    z-index:1;
+
+}
+
+.particle{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(1px);
+
+    opacity:.8;
+
+    animation:float linear infinite;
+
+}
+
+@keyframes float{
+
+    from{
+
+        transform:translateY(110vh);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.8;
+
+    }
+
+    80%{
+
+        opacity:.8;
+
+    }
+
+    to{
+
+        transform:translateY(-120px);
+
+        opacity:0;
+
+    }
+
+}
+/*=================================
+            SMOKE LAYER
+=================================*
+
+#smoke{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.smoke{
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.16;
+
+    background:rgba(255,255,255,.30);
+
+    animation:smokeFloat linear infinite;
+
+}
+
+@keyframes smokeFloat{
+
+    from{
+
+        transform:
+        translateY(120vh)
+        translateX(0)
+        scale(.7);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.18;
+
+    }
+
+    80%{
+
+        opacity:.18;
+
+    }
+
+    to{
+
+        transform:
+        translateY(-250px)
+        translateX(100px)
+        scale(1.5);
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+
+

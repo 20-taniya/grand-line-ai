@@ -1,0 +1,686 @@
+/* ===========================
+        RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+
+    min-height:100vh;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    transition:0.6s ease;
+
+    overflow:hidden;
+}
+
+/* Dark Overlay */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:-1;
+
+}
+
+/* ===========================
+        MAIN CONTAINER
+=========================== */
+
+.chat-container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+/* ===========================
+        HEADER
+=========================== */
+
+.chat-header{
+
+    height:160px;
+
+    display:flex;
+
+    justify-content:flex-start;
+
+    align-items:center;
+
+    padding:0 50px;
+
+    background-repeat:no-repeat;
+
+    background-position:right 40px center;
+    background-size:230px;
+
+    border-bottom:3px solid rgba(255,255,255,.25);
+
+}
+.header-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+#characterIcon{
+
+    width:75px;
+
+    height:75px;
+
+    object-fit:contain;
+
+    filter:drop-shadow(0 0 10px white);
+
+}
+#characterName{
+
+    font-family:'Orbitron', sans-serif;
+
+    font-size:44px;
+
+    font-weight:800;
+
+    color:white;
+
+    letter-spacing:1px;
+
+    text-shadow:
+        0 0 8px black,
+        0 0 15px black;
+
+}
+.header-left h2{
+
+    color:white;
+
+    font-size:32px;
+
+    font-family:'Pirata One', cursive;
+
+    letter-spacing:1px;
+
+}
+
+.header-right img{
+
+    width:90px;
+
+    height:90px;
+
+    object-fit:contain;
+
+    border-radius:50%;
+
+    filter:drop-shadow(0 0 12px white);
+
+}
+
+.chat-header h2{
+
+    color:white;
+
+    font-size:32px;
+
+}
+
+.chat-header p{
+
+    color:#49ff5b;
+
+    margin-top:6px;
+
+}
+
+/* ===========================
+        CHAT AREA
+=========================== */
+
+.messages{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    padding:40px;
+
+    overflow-y:auto;
+
+}
+/* Scrollbar */
+
+.messages::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+.messages::-webkit-scrollbar-thumb{
+
+    background:#888;
+
+    border-radius:20px;
+
+}
+
+/* ===========================
+        BOT MESSAGE
+=========================== */
+
+.bot-message{
+
+    max-width:500px;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(18px);
+
+    color:white;
+
+    line-height:32px;
+
+    font-size:18px;
+
+    box-shadow:
+
+    0 0 20px rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+        INPUT
+=========================== */
+
+.chat-input{
+
+    display:flex;
+
+    gap:20px;
+
+    padding:25px 40px;
+
+    background:rgba(0,0,0,.45);
+
+    backdrop-filter:blur(15px);
+
+}
+
+.chat-input input{
+
+    flex:1;
+
+    height:58px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:40px;
+
+    padding:0 25px;
+
+    font-size:18px;
+
+    background:white;
+
+}
+
+.chat-input button{
+
+    width:150px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:#ff3131;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+}
+
+.chat-input button:hover{
+
+    transform:translateY(-3px);
+
+    background:#ff4d4d;
+
+    box-shadow:
+
+    0 0 15px red;
+
+}
+
+/* ===========================
+        ANIMATION
+=========================== */
+
+.chat-container{
+
+    position:relative;
+
+    z-index:2;
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+.user-message{
+
+    align-self:flex-end;
+
+    width:fit-content;
+
+    max-width:65%;
+
+    min-width:60px;
+
+    margin-left:auto;
+
+    padding:15px 20px;
+
+    border-radius:22px 22px 6px 22px;
+
+    background:linear-gradient(135deg,#2b7cff,#0d5eff);
+
+    color:white;
+
+    line-height:28px;
+
+}
+
+.bot-message{
+
+    align-self:flex-start;
+
+    width:fit-content;
+
+    max-width:65%;
+
+    min-width:60px;
+
+    margin-right:auto;
+
+    padding:18px;
+
+    border-radius:22px 22px 22px 6px;
+
+}
+@keyframes userPop{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes botPop{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+.typing{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    width:fit-content;
+
+    padding:15px 20px;
+
+}
+.typing span{
+
+    width:10px;
+
+    height:10px;
+
+    border-radius:50%;
+
+    background:white;
+
+    animation:typing .8s infinite alternate;
+
+}
+
+.typing span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+.typing span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+@keyframes typing{
+
+    from{
+
+        transform:translateY(0);
+
+        opacity:.3;
+
+    }
+
+    to{
+
+        transform:translateY(-8px);
+
+        opacity:1;
+
+    }
+
+}
+#particles{
+
+position:fixed;
+
+inset:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+z-index:0;
+
+}
+#smoke{
+
+    z-index:1;
+
+}
+
+
+.particle{
+
+position:absolute;
+
+border-radius:50%;
+
+filter:blur(1px);
+
+animation:float linear infinite;
+
+}
+
+@keyframes float{
+
+from{
+
+transform:translateY(110vh);
+
+opacity:0;
+
+}
+
+20%{
+
+opacity:.8;
+
+}
+
+80%{
+
+opacity:.8;
+
+}
+
+to{
+
+transform:translateY(-120px);
+
+opacity:0;
+
+}
+
+}
+/*=================================
+            SMOKE LAYER
+=================================
+
+#smoke{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.smoke{
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.16;
+
+    background:rgba(255,255,255,.30);
+
+    animation:smokeFloat linear infinite;
+
+}
+
+@keyframes smokeFloat{
+
+    from{
+
+        transform:
+        translateY(120vh)
+        translateX(0)
+        scale(.7);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:.18;
+
+    }
+
+    80%{
+
+        opacity:.18;
+
+    }
+
+    to{
+
+        transform:
+        translateY(-250px)
+        translateX(100px)
+        scale(1.5);
+
+        opacity:0;
+
+    }
+
+}*/
+.file-preview {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    max-width: 300px;
+    margin: 8px 15px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.file-preview button {
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+/* ============================= */
+/* FILE PREVIEW */
+/* ============================= */
+
+.file-preview {
+    margin: 10px 0;
+    padding: 10px;
+    max-width: 420px;
+    border-radius: 12px;
+    background: #000000a6;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+/* Header */
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+
+/* Remove button */
+
+.preview-header button {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+/* Image */
+
+.uploaded-image-preview {
+    display: block;
+    width: 100%;
+    max-width: 380px;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+/* PDF */
+
+.uploaded-pdf-preview {
+    display: block;
+    width: 380px;
+    height: 450px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+}

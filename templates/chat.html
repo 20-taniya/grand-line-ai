@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Grand Line AI</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="chatBody">
+
+<div id="particles">
+</div>
+<div id="smoke">   
+</div>
+    <div class="chat-container">
+
+        <!-- Header -->
+<div class="chat-header">
+
+    <div class="header-left">
+
+        <img id="characterIcon">
+
+        <h2 id="characterName"></h2>
+        <img id="characterImage">
+    </div>
+
+</div>
+
+        <!-- Chat Area -->
+
+<div class="messages" id="messages">
+            <div class="bot-message" id="welcomeMessage">
+
+            </div>
+
+        </div>
+
+        <!-- Input -->
+
+  
+
+    <div class="chat-input">
+
+    <button id="uploadBtn" type="button">📎</button>
+
+    <input
+        type="file"
+        id="fileInput"
+        accept="image/*,.pdf"
+        hidden
+    >
+
+    <input
+        id="userInput"
+        type="text"
+        placeholder="Ask anything..."
+        autocomplete="off"
+        onkeydown="if(event.key === 'Enter'){ event.preventDefault(); sendMessage(); }"
+    >
+
+    <button
+        id="sendBtn"
+        type="button"
+        onclick="sendMessage()">
+        Send
+    </button>
+
+</div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+
+</body>
+
+</html>
